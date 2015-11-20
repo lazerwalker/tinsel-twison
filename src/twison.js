@@ -86,10 +86,60 @@ var Twison = {
     return dict;
   },
 
+  jsonPassageToTinsel: function(passage) {
+    var tinselNode = {};
+
+    var content = passage.text;
+
+    // Remove routes
+    content = content.replace(/\[\[.+?\]\]/g, "")
+
+    // Split separate content
+    content = content.split("\n\n")
+
+    content = content.filter(function(string) {
+      return string != "";
+    });
+
+    tinselNode.content = content;
+
+    var routes = {};
+    if (!passage.links) passage.links = [];
+    passage.links.forEach(function(link) {
+      routes[link.name] = link.link;
+    });
+    if (Object.keys(routes).length > 0) {
+      tinselNode.routes = routes;
+    };    
+
+    return tinselNode;
+  },
+
+  jsonStoryToTinsel: function(json) {
+    var tinsel = {};
+
+    var story = {};
+    var namesByPid = {};
+    json.passages.forEach(function(passage) {
+      story[passage.name] = Twison.jsonPassageToTinsel(passage);
+      namesByPid[passage.pid] = passage.name;
+    });
+
+    tinsel.start = namesByPid[json.startnode];
+    tinsel.story = story;
+
+    return tinsel;
+  },
+
   convert: function() {
     var storyData = document.getElementsByTagName("tw-storydata")[0];
-    var json = JSON.stringify(Twison.convertStory(storyData), null, 2);
+    var converted = Twison.convertStory(storyData);
+    var json = JSON.stringify(converted, null, 2);
     document.getElementById("output").innerHTML = json;
+
+    var tinsel = Twison.jsonStoryToTinsel(converted);
+    json = JSON.stringify(tinsel, null, 2);
+    document.getElementById("output").innerHTML = json;    
   }
 }
 
