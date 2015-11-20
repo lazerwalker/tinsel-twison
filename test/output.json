@@ -3,10 +3,11 @@
   "story": {
     "startPassage": {
       "content": [
-        "Hi! I am tinsel.",
+        "js:\n  this.sawIntro = true;\n  return \"Hi! I am tinsel.\"\n",
         "woman:Woman says this",
         "pause:3",
-        "play:audiofile.gif"
+        "play:audiofile.gif",
+        "js:\n  if (this.sawIntro) {\n  var now = new Date();\n  return \"The current time is \" + now.toTimeString();\n  } else {\n    return \"You didn't see the intro?\";\n  }\n"
       ],
       "routes": {
         "1": "first",

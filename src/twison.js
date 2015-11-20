@@ -101,6 +101,15 @@ var Twison = {
       return string != "";
     });
 
+    content = content.map(function(string) {
+      var js = string.match(/^\{\{js\}\}([\s\S]*?)\{\{\/js\}\}$/);
+      if (js) {
+        return "js:" + js[1];
+      } else {
+        return string;
+      }
+    });
+
     tinselNode.content = content;
 
     var routes = {};

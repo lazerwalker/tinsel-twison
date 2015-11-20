@@ -1,10 +1,22 @@
-<tw-storydata name="Tinsel" startnode="1" creator="Twine" creator-version="2.0.9" ifid="69DD928B-2FED-469E-B22E-A4F3A97A064D" format="Twison" options="" hidden=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="startPassage" tags="" position="456,52">Hi! I am tinsel.
+<tw-storydata name="Tinsel" startnode="1" creator="Twine" creator-version="2.0.9" ifid="69DD928B-2FED-469E-B22E-A4F3A97A064D" format="Twison" options="" hidden=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="startPassage" tags="" position="459,51">{{js}}
+  this.sawIntro = true;
+  return "Hi! I am tinsel."
+{{/js}}
 
 woman:Woman says this
 
 pause:3
 
 play:audiofile.gif
+
+{{js}}
+  if (this.sawIntro) {
+  var now = new Date();
+  return "The current time is " + now.toTimeString();
+  } else {
+    return "You didn't see the intro?";
+  }
+{{/js}}
 
 [[1-&gt;first]]
 [[2-&gt;second]]
