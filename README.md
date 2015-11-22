@@ -1,98 +1,24 @@
-# Twison
+# Tinsel-Twison
 
-[![Build Status](https://travis-ci.org/lazerwalker/twison.svg?branch=master)](https://travis-ci.org/lazerwalker/twison)
+[![Build Status](https://travis-ci.org/lazerwalker/tinsel-twison.svg?branch=master)](https://travis-ci.org/lazerwalker/tinsel-twison)
 
-Twison is a story format for [Twine 2](http://twinery.org/2) that simply exports to JSON.
+Tinsel-Twison is a story format for [Twine 2](http://twinery.org/2) that allows you to use Twine to write stories for the [Tinsel](http://maketinsel.com) platform for making phone tree-based interactive fiction.
 
-It is inspired by [Entweedle](http://www.maximumverbosity.net/twine/Entweedle/) as a model for how Twine 2 story formats work.
-
-## Installation
-
-From the Twine 2 story select screen, add a story format, and point it to the url `http://github.com/lazerwalker/twison/raw/master/dist/format.js`.
-
-From within your story, set its story format to Twison. Choosing "Play" will now give you a JSON file.
+It is a fork of the [Twison](https://github.com/lazerwalker/twison) project. The hope is that Twison will one day provide a proper plugin or module system to make this sort of integration easier, but in the meanwhile having this project be a fork of Twison works well enough.
 
 
-## Output
+## Installation 
 
-Here's an example of its output:
+From the Twine 2 story select screen, add a story format, and point it to the url `http://github.com/lazerwalker/tinsel-twison/raw/master/dist/format.js`.
 
-```json
-{
-  "passages": [
-    {
-      "text": "This is a passage that goes to [[No Where->nowhere]].\n\nor is to [[somewhere]]?\n\nHere's a [[third link]]\n\nClick [[me->someNode]]",
-      "links": [
-        {
-          "name": "No Where",
-          "link": "nowhere",
-          "pid": "3"
-        },
-        {
-          "name": "somewhere",
-          "link": "somewhere",
-          "pid": "2"
-        },
-        {
-          "name": "third link",
-          "link": "third link",
-          "pid": "4"
-        },
-        {
-          "name": "me",
-          "link": "someNode",
-          "pid": "5"
-        }
-      ],
-      "name": "First passage",
-      "pid": "1",
-      "position": {
-        "x": "553.3333333333334",
-        "y": "38.333333333333336"
-      },
-      "tags": [
-        "tag",
-        "second-tag"
-      ]
-    },
-    {
-      "text": "You found me!",
-      "name": "somewhere",
-      "pid": "2",
-      "position": {
-        "x": "893.3333333333334",
-        "y": "241.66666666666669"
-      }
-    }
-  ],
-  "name": "Test",
-  "startnode": "1",
-  "creator": "Twine",
-  "creator-version": "2.0.9",
-  "ifid": "1881C2BE-C764-4D33-ACC6-7BAEBB6D770A"
-}
-```
+From within your story, set its story format to Tinsel. Choosing "Play" will now give you a Tinsel-compatible JSON file you can copy and paste straight into the Tinsel web editor at [http://maketinsel.com].
 
-It aims to maintain all fields provided in Twine's internal XML data, while augmenting with other information where possible. For example, it doesn't touch a node's text contents, but it does parse links to provide a dictionary of links and destination nodes.
+Writing a Tinsel game in Twine is almost, but not quite, like making a regular Twine game. For details, check out the "Writing In Twine" section of the [Tinsel documentation](https://github.com/lazerwalker/tinsel/#writing-in-twine)
 
 
-## Development
+## Setting up a development environment 
 
-If you want to hack on Twison itself:
-
-1. Clone this repo and run `npm install` to install dependencies.
-2. Make your changes to the unminified code in the `src` folder
-3. Run `node build.js` to compile your source into a `format.js` file that Twine 2 can understand. Alternatively, you can run `node watch.js` to watch the `src` directory for changes and auto-recompile every time you save.
-
-
-### Testing your changes locally
-
-Running `npm start` will start the `watch.js` auto-compile behavior, and also start a local web server that serves the compiled `format.js` file. By default, this will be available at `http://localhost:3000/format.js`. Add that URL as a story format to your copy of Twine 2; every time you save a source file and then re-generate the "Play" view of your story in Twine, it should use the latest version of your code.
-
-This is easier to do with the browser-based version of Twine 2 than with the downloadable copy, as you can just refresh your output page and it'll use the latest version of Twison.
-
-
-All contributions are welcome! If making code changes, please be sure to run the test suite (`npm test`) before opening a pull request.
+If you want to contribute to Tinsel-Twison, or are interested in hacking on the source code for any other reason, you should follow the instructions in the parent [Twison README](http://github.com/lazerwalker/twison). Other than cloning this repo instead of the main Twison repo, everything else should be the same.
 
 
 ## License
