@@ -97,10 +97,7 @@ var Twison = {
     // Split separate content
     content = content.split("\n\n")
 
-    content = content.filter(function(string) {
-      return string != "";
-    });
-
+    // JS
     content = content.map(function(string) {
       var js = string.match(/^\{\{js\}\}([\s\S]*?)\{\{\/js\}\}$/);
       if (js) {
@@ -110,9 +107,34 @@ var Twison = {
       }
     });
 
+    // routeOptions
+    var routeOptions = {};
+    content = content.map(function(string) {
+      var routeOptionsString = string.match(/^\{\{routeOptions\}\}([\s\S]*?)\{\{\/routeOptions\}\}$/);
+      if (routeOptionsString) {
+        var regex = /\{\{([\s\S]*?)\}\}([\s\S]*?)\{\{\/([\s\S]*?)\}\}/g;
+        var option;
+        while ((option = regex.exec(routeOptionsString[1])) !== null) {
+          if (option[1] != option[3]) continue;
+          routeOptions[option[1]] = option[2];
+        }
+        string = string.replace(routeOptionsString[0], '');
+      }
+      return string;
+    });
+
+    // Remove empty content
+    content = content.filter(function(string) {
+      return string != "";
+    });
+
     tinselNode.content = content;
 
     var routes = {};
+    if (Object.keys(routeOptions).length > 0) {
+      routes.options = routeOptions;
+    }
+
     if (!passage.links) passage.links = [];
     passage.links.forEach(function(link) {
       routes[link.name] = link.link;

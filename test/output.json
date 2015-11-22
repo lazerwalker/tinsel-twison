@@ -12,6 +12,11 @@
       "routes": {
         "1": "first",
         "2": "second",
+        "options": {
+          "finishOnKey": "#",
+          "numDigits": "4",
+          "timeout": "10"
+        },
         "timeout": "none"
       }
     },
