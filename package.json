@@ -1,7 +1,7 @@
 {
-  "name": "Twison",
-  "version": "0.0.2",
-  "description": "Export your Twine 2 story as a JSON document",
+  "name": "Tinsel",
+  "version": "0.0.1",
+  "description": "Export your Twine 2 story as a Tinsel (http://maketinsel.com) document",
   "main": "format.js",
   "scripts": {
     "test": "cd test && mocha test.js"
@@ -13,9 +13,9 @@
   "author": "Mike Lazer-Walker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lazerwalker/twison/issues"
+    "url": "https://github.com/lazerwalker/tinsel-twison/issues"
   },
-  "homepage": "https://github.com/lazerwalker/twison",
+  "homepage": "https://github.com/lazerwalker/tinsel-twison",
   "devDependencies": {
     "chai": "^3.4.1",
     "express": "^4.13.3",
