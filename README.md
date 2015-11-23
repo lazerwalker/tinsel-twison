@@ -6,6 +6,7 @@ Tinsel-Twison is a story format for [Twine 2](http://twinery.org/2) that allows 
 
 It is a fork of the [Twison](https://github.com/lazerwalker/twison) project. The hope is that Twison will one day provide a proper plugin or module system to make this sort of integration easier, but in the meanwhile having this project be a fork of Twison works well enough.
 
+*If you've stumbled upon this*, this repo does work. However, it's still under active development to make it far easier to use before considering it "launched". More documentation, as well as some moderately large changes, are coming very soon.
 
 ## Installation 
 
