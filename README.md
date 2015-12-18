@@ -10,7 +10,7 @@ It is a fork of the [Twison](https://github.com/lazerwalker/twison) project. The
 
 ## Installation 
 
-From the Twine 2 story select screen, add a story format, and point it to the url `http://github.com/lazerwalker/tinsel-twison/raw/master/dist/format.js`.
+From the Twine 2 story select screen, add a story format, and point it to the url `http://lazerwalker.com/tinsel-twison/format.js`.
 
 From within your story, set its story format to Tinsel. Choosing "Play" will now give you a Tinsel-compatible JSON file you can copy and paste straight into the Tinsel web editor at [http://maketinsel.com].
 
