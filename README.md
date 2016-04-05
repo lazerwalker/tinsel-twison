@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/lazerwalker/tinsel-twison.svg?branch=master)](https://travis-ci.org/lazerwalker/tinsel-twison)
 
-Tinsel-Twison is a story format for [Twine 2](http://twinery.org/2) that allows you to use Twine to write stories for the [Tinsel](http://maketinsel.com) platform for making phone tree-based interactive fiction.
+Tinsel-Twison is a story format for [Twine 2](http://twinery.org/2) that allows you to use Twine to write stories for the [Tinsel](http://www.maketinsel.com) platform for making phone tree-based interactive fiction.
 
 It is a fork of the [Twison](https://github.com/lazerwalker/twison) project. The hope is that Twison will one day provide a proper plugin or module system to make this sort of integration easier, but in the meanwhile having this project be a fork of Twison works well enough.
 
@@ -12,7 +12,7 @@ It is a fork of the [Twison](https://github.com/lazerwalker/twison) project. The
 
 From the Twine 2 story select screen, add a story format, and point it to the url `http://lazerwalker.com/tinsel-twison/format.js`.
 
-From within your story, set its story format to Tinsel. Choosing "Play" will now give you a Tinsel-compatible JSON file you can copy and paste straight into the Tinsel web editor at [http://maketinsel.com].
+From within your story, set its story format to Tinsel. Choosing "Play" will now give you a Tinsel-compatible JSON file you can copy and paste straight into the Tinsel web editor at http://www.maketinsel.com.
 
 Writing a Tinsel game in Twine is almost, but not quite, like making a regular Twine game. For details, check out the "Writing In Twine" section of the [Tinsel documentation](https://github.com/lazerwalker/tinsel/#writing-in-twine)
 
